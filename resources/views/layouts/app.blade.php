@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Sistema Simple')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-4">
+    <header>
+        <h1>Sistema de Gestión</h1>
+        <nav>
+            <a href="/">Inicio</a> | 
+            <a href="/clientes">Clientes</a> | 
+            <a href="/productos">Productos</a> | 
+            <a href="/pedidos">Pedidos</a> | 
+            <a href="/alumnos">Alumnos</a>
+        </nav>
+    </header>
+
+    <main>
         @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
+            <p><strong>Éxito:</strong> {{ session('success') }}</p>
         @endif
 
         @if(session('error'))
-            <div class="alert alert-danger">{{ session('error') }}</div>
+            <p><strong>Error:</strong> {{ session('error') }}</p>
         @endif
 
         @yield('content')
-    </div>
+    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <footer>
+        <p>© {{ date('Y') }} Sistema Simple</p>
+    </footer>
 </body>
 </html>

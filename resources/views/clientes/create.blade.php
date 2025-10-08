@@ -8,45 +8,41 @@
 <form action="{{ route('clientes.store') }}" method="POST">
     @csrf
     
-    <div class="mb-3">
-        <label for="name" class="form-label">Nombre *</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" 
-               id="name" name="name" value="{{ old('name') }}" required>
+    <p>
+        <label for="name">Nombre *</label><br>
+        <input type="text" id="name" name="name" value="{{ old('name') }}" required>
         @error('name')
-            <div class="invalid-feedback">{{ $message }}</div>
+            <br><span style="color: red;">{{ $message }}</span>
         @enderror
-    </div>
+    </p>
 
-    <div class="mb-3">
-        <label for="email" class="form-label">Email *</label>
-        <input type="email" class="form-control @error('email') is-invalid @enderror" 
-               id="email" name="email" value="{{ old('email') }}" required>
+    <p>
+        <label for="email">Email *</label><br>
+        <input type="email" id="email" name="email" value="{{ old('email') }}" required>
         @error('email')
-            <div class="invalid-feedback">{{ $message }}</div>
+            <br><span style="color: red;">{{ $message }}</span>
         @enderror
-    </div>
+    </p>
 
-    <div class="mb-3">
-        <label for="phone" class="form-label">Teléfono</label>
-        <input type="text" class="form-control @error('phone') is-invalid @enderror" 
-               id="phone" name="phone" value="{{ old('phone') }}">
+    <p>
+        <label for="phone">Teléfono</label><br>
+        <input type="text" id="phone" name="phone" value="{{ old('phone') }}">
         @error('phone')
-            <div class="invalid-feedback">{{ $message }}</div>
+            <br><span style="color: red;">{{ $message }}</span>
         @enderror
-    </div>
+    </p>
 
-    <div class="mb-3">
-        <label for="address" class="form-label">Dirección</label>
-        <textarea class="form-control @error('address') is-invalid @enderror" 
-                  id="address" name="address" rows="3">{{ old('address') }}</textarea>
+    <p>
+        <label for="address">Dirección</label><br>
+        <textarea id="address" name="address" rows="3">{{ old('address') }}</textarea>
         @error('address')
-            <div class="invalid-feedback">{{ $message }}</div>
+            <br><span style="color: red;">{{ $message }}</span>
         @enderror
-    </div>
+    </p>
 
-    <div class="d-flex gap-2">
-        <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Volver</a>
-        <button type="submit" class="btn btn-primary">Guardar Cliente</button>
-    </div>
+    <p>
+        <a href="{{ route('clientes.index') }}">Volver</a> | 
+        <button type="submit">Guardar Cliente</button>
+    </p>
 </form>
 @endsection
